@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Microservices App</title>
+</head>
+<body>
+
+  <h1>Azure Microservices Frontend 🚀</h1>
+
+  <button onclick="checkAPI()">Check API</button>
+
+  <p id="result"></p>
+
+  <script>
+    async function checkAPI() {
+      try {
+        const res = await fetch("https://gateway.wonderfulbush-296954c7.southeastasia.azurecontainerapps.io/health");
+        const data = await res.json();
+        document.getElementById("result").innerText = JSON.stringify(data);
+      } catch (err) {
+        document.getElementById("result").innerText = "Error connecting to API";
+      }
+    }
+  </script>
+
+</body>
+</html>
